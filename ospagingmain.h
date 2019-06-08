@@ -13,6 +13,7 @@ class OsPagingMain : public QMainWindow
 {
     Q_OBJECT
     int removePageAddr = 0;
+    int nextPageNumber = 0;
 
 public:
     explicit OsPagingMain(QWidget *parent = nullptr);
@@ -24,6 +25,12 @@ private slots:
     void on_programInfo1_editingFinished();
 
     void on_programInfo2_editingFinished();
+
+    void on_pushButton_2_clicked();
+
+    void on_accessInfo1_editingFinished();
+
+    void on_accessInfo2_editingFinished();
 
 private:
     Ui::OsPagingMain *ui;

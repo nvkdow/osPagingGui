@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>962</width>
-    <height>540</height>
+    <width>1049</width>
+    <height>539</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -132,7 +132,7 @@
         <string>Offset Value</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_4">
+      <widget class="QLineEdit" name="accessInfo1">
        <property name="geometry">
         <rect>
          <x>110</x>
@@ -142,7 +142,7 @@
         </rect>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_5">
+      <widget class="QLineEdit" name="accessInfo2">
        <property name="geometry">
         <rect>
          <x>110</x>
@@ -215,7 +215,7 @@
      <rect>
       <x>320</x>
       <y>10</y>
-      <width>341</width>
+      <width>411</width>
       <height>471</height>
      </rect>
     </property>
@@ -227,7 +227,7 @@
       <rect>
        <x>10</x>
        <y>20</y>
-       <width>321</width>
+       <width>391</width>
        <height>441</height>
       </rect>
      </property>
@@ -235,17 +235,22 @@
       <number>0</number>
      </property>
      <attribute name="horizontalHeaderMinimumSectionSize">
-      <number>100</number>
+      <number>95</number>
      </attribute>
      <attribute name="horizontalHeaderDefaultSectionSize">
-      <number>100</number>
+      <number>95</number>
      </attribute>
      <attribute name="verticalHeaderVisible">
       <bool>false</bool>
      </attribute>
      <column>
       <property name="text">
-       <string>residentBit</string>
+       <string>pageNum</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>resiBit</string>
       </property>
      </column>
      <column>
@@ -255,7 +260,7 @@
      </column>
      <column>
       <property name="text">
-       <string>pageNum</string>
+       <string>pageFNum</string>
       </property>
      </column>
     </widget>
@@ -263,9 +268,9 @@
    <widget class="QGroupBox" name="groupBox_3">
     <property name="geometry">
      <rect>
-      <x>660</x>
+      <x>740</x>
       <y>10</y>
-      <width>291</width>
+      <width>301</width>
       <height>471</height>
      </rect>
     </property>
@@ -277,7 +282,7 @@
       <rect>
        <x>10</x>
        <y>20</y>
-       <width>271</width>
+       <width>281</width>
        <height>441</height>
       </rect>
      </property>
@@ -4307,7 +4312,7 @@
      <row/>
      <column>
       <property name="text">
-       <string>pageNum</string>
+       <string>pageFNum</string>
       </property>
      </column>
      <column>
@@ -4374,7 +4379,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>962</width>
+     <width>1049</width>
      <height>26</height>
     </rect>
    </property>
