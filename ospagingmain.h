@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+#include <random>
+
 namespace Ui {
 class OsPagingMain;
 }
@@ -10,6 +12,7 @@ class OsPagingMain;
 class OsPagingMain : public QMainWindow
 {
     Q_OBJECT
+    int removePageAddr = 0;
 
 public:
     explicit OsPagingMain(QWidget *parent = nullptr);
@@ -25,6 +28,10 @@ private slots:
 private:
     Ui::OsPagingMain *ui;
 
+    // Random number generator for calculate page generation number
+    std::mt19937 mPRNG;
+
+    void removePage();
     bool isRangeOverlapped(QString strA1, QString strA2);
 };
 
