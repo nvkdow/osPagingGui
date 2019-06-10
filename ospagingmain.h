@@ -32,6 +32,10 @@ private slots:
 
     void on_accessInfo2_editingFinished();
 
+    void on_actionInfo_triggered();
+
+    void on_actionExit_triggered();
+
 private:
     Ui::OsPagingMain *ui;
 

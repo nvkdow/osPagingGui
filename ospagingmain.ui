@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1049</width>
-    <height>539</height>
+    <width>1060</width>
+    <height>540</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -215,7 +215,7 @@
      <rect>
       <x>320</x>
       <y>10</y>
-      <width>411</width>
+      <width>421</width>
       <height>471</height>
      </rect>
     </property>
@@ -227,7 +227,7 @@
       <rect>
        <x>10</x>
        <y>20</y>
-       <width>391</width>
+       <width>401</width>
        <height>441</height>
       </rect>
      </property>
@@ -268,7 +268,7 @@
    <widget class="QGroupBox" name="groupBox_3">
     <property name="geometry">
      <rect>
-      <x>740</x>
+      <x>750</x>
       <y>10</y>
       <width>301</width>
       <height>471</height>
@@ -290,10 +290,10 @@
       <bool>true</bool>
      </property>
      <property name="rowCount">
-      <number>4000</number>
+      <number>4040</number>
      </property>
      <attribute name="horizontalHeaderVisible">
-      <bool>true</bool>
+      <bool>false</bool>
      </attribute>
      <attribute name="horizontalHeaderMinimumSectionSize">
       <number>85</number>
@@ -310,6 +310,46 @@
      <attribute name="verticalHeaderDefaultSectionSize">
       <number>22</number>
      </attribute>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
      <row/>
      <row/>
      <row/>
@@ -4379,12 +4419,30 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1049</width>
+     <width>1060</width>
      <height>26</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuinfo">
+    <property name="title">
+     <string>menu</string>
+    </property>
+    <addaction name="actionInfo"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <addaction name="menuinfo"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionInfo">
+   <property name="text">
+    <string>Info</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>

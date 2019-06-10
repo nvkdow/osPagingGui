@@ -25,12 +25,15 @@ OsPagingMain::OsPagingMain(QWidget *parent) :
     // Initialize MainMemory Address
     for(int i = 0; i < MAX_PMT_SIZE * MULTI_PROG_DEGREE; i++) {
         QTableWidgetItem* item1 = new QTableWidgetItem("-");
+        item1->setBackgroundColor(((i / 20) & 1)? Qt::lightGray : Qt::white);
         item1->setFlags(item1->flags() & ~Qt::ItemIsEditable);
         item1->setTextAlignment(Qt::AlignCenter);
         QTableWidgetItem* item2 = new QTableWidgetItem(QString::number(i));
+        item2->setBackgroundColor(((i / 20) & 1)? Qt::lightGray : Qt::white);
         item2->setFlags(item2->flags() & ~Qt::ItemIsEditable);
         item2->setTextAlignment(Qt::AlignCenter);
         QTableWidgetItem* item3 = new QTableWidgetItem("-");
+        item3->setBackgroundColor(((i / 20) & 1)? Qt::lightGray : Qt::white);
         item3->setFlags(item3->flags() & ~Qt::ItemIsEditable);
         item3->setTextAlignment(Qt::AlignCenter);
 
@@ -93,23 +96,28 @@ void OsPagingMain::on_pushButton_clicked()
     int pmtRowCount = ui->tablePMT->rowCount();
 
     // Add Page mapping info into PMT
+    static int colorFlag = 0;
     for(int pmtNum = pmtRowCount, chk = 0; pmtNum < pmtRowCount + totalPageNum; pmtNum++) {
         bool resiBitOn = false;
         QTableWidgetItem* item0 = new QTableWidgetItem(QString::number(pmtNum));
+        item0->setBackgroundColor((colorFlag & 1)? Qt::lightGray : Qt::white);
         item0->setFlags(item0->flags() & ~Qt::ItemIsEditable);
         item0->setTextAlignment(Qt::AlignCenter);
 
         if(chk < initPageNum && distribution2(this->mPRNG) & 1) { resiBitOn = true; chk++; }
         QTableWidgetItem* item1 = new QTableWidgetItem(QString::number(int(resiBitOn)));
+        item1->setBackgroundColor((colorFlag & 1)? Qt::lightGray : Qt::white);
         item1->setFlags(item1->flags() & ~Qt::ItemIsEditable);
         item1->setTextAlignment(Qt::AlignCenter);
 
         QTableWidgetItem* item2 = new QTableWidgetItem(QString::number(scndAddr));
+        item2->setBackgroundColor((colorFlag & 1)? Qt::lightGray : Qt::white);
         item2->setFlags(item2->flags() & ~Qt::ItemIsEditable);
         item2->setTextAlignment(Qt::AlignCenter);
 
         QString pageNumber = (resiBitOn)? QString::number(this->nextPageNumber++) : "-";
         QTableWidgetItem* item3 = new QTableWidgetItem(pageNumber);
+        item3->setBackgroundColor((colorFlag & 1)? Qt::lightGray : Qt::white);
         item3->setFlags(item3->flags() & ~Qt::ItemIsEditable);
         item3->setTextAlignment(Qt::AlignCenter);
 
@@ -130,7 +138,7 @@ void OsPagingMain::on_pushButton_clicked()
             }
 
             // Delete assigned page if MainMemory is full
-            // Deprecated since Assignment says it doesn't need this feature  :(
+            // Deprecated since Assignment doesn't need this feature
             /* if(strtAddr >= 4000) {
                 strtAddr = this->removePageAddr;
                 removePage();
@@ -139,19 +147,13 @@ void OsPagingMain::on_pushButton_clicked()
             int restSize = (progAddr.toInt() + progSize.toInt()) - scndAddr;
             std::uniform_int_distribution<__int64> valueGenerator(1, 9999);
             for(int i = 0; i < PAGE_SIZE && i < restSize; i++) {
-                QTableWidgetItem* item1 = new QTableWidgetItem(pageNumber);
-                item1->setFlags(item2->flags() & ~Qt::ItemIsEditable);
-                item1->setTextAlignment(Qt::AlignCenter);
-                QTableWidgetItem* item2 = new QTableWidgetItem(QString::number(valueGenerator(this->mPRNG)));
-                item2->setFlags(item2->flags() & ~Qt::ItemIsEditable);
-                item2->setTextAlignment(Qt::AlignCenter);
-
-                ui->tableMainMemory->setItem(strtAddr + i, 0, item1);
-                ui->tableMainMemory->setItem(strtAddr + i, 2, item2);
+                ui->tableMainMemory->item(strtAddr + i, 0)->setText(pageNumber);
+                ui->tableMainMemory->item(strtAddr + i, 2)->setText(QString::number(valueGenerator(this->mPRNG)));
             }
         }
         scndAddr += PAGE_SIZE;
     }
+    colorFlag++;
 }
 
 // MAIN LOGIC 2 : access real address
@@ -291,6 +293,21 @@ void OsPagingMain::on_accessInfo2_editingFinished()
         QMessageBox::information(this, tr("alert"), tr("0 이상, 페이지 크기 미만의 숫자만을 기입해주세요!"));
         ui->accessInfo2->clear();
     }
+}
+
+void OsPagingMain::on_actionInfo_triggered()
+{
+    QMessageBox createdInfo;
+    createdInfo.setWindowTitle("OSPagingGUI");
+    createdInfo.setText("OSPagingGUI");
+    createdInfo.setInformativeText("Simple GUI program showing OS paging system\n\nCREATED AT : 2019/06/10\nMADE BY : 컴퓨터공학부 2017136069 유지훈");
+
+    createdInfo.exec();
+}
+
+void OsPagingMain::on_actionExit_triggered()
+{
+    QCoreApplication::quit();
 }
 
 //==================== ADDITIONAL FUNCTIONS END ====================//
